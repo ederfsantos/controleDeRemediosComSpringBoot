@@ -8,6 +8,9 @@ public enum Laboratorio {
 	GENON,
 	GEOLAB,
 	MOMENTA,
-	EMS
+	EMS,
+	NEOQUIMICA,
+	SANOFI
+	
 
 }

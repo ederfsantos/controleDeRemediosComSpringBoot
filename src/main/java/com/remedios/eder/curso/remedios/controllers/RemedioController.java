@@ -9,13 +9,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.remedios.eder.curso.remedios.remedio.DadosAtualizarRemedio;
 import com.remedios.eder.curso.remedios.remedio.DadosCadastroRemedio;
 import com.remedios.eder.curso.remedios.remedio.DadosListagemRemedio;
-import com.remedios.eder.curso.remedios.remedio.DadoslistagemRemedio;
+
 import com.remedios.eder.curso.remedios.remedio.Remedio;
 import com.remedios.eder.curso.remedios.remedio.RemedioRepository;
 
@@ -58,6 +60,13 @@ public class RemedioController {
 	@GetMapping
 	public List<DadosListagemRemedio> listar(){
 		return repository.findAll().stream().map(DadosListagemRemedio::new).toList();
+	}
+	
+	@PutMapping
+	@Transactional
+	public void atualizar(@RequestBody @Valid DadosAtualizarRemedio dados) {
+		var remedio = repository.getReferenceById(dados.id());
+		remedio.atualizarInformacoes(dados);
 	}
 	
 

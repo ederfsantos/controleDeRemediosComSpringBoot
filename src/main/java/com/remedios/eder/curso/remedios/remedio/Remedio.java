@@ -1,5 +1,7 @@
 package com.remedios.eder.curso.remedios.remedio;
 
+import java.time.LocalDate;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -31,10 +33,26 @@ public class Remedio {
 	@Enumerated(EnumType.STRING)
 	private Via via;
 	private String lote;
-	private String quantidade;
-	private String validade;
+	private Integer quantidade;
+	private LocalDate validade;
 	@Enumerated(EnumType.STRING)
 	private Laboratorio laboratorio;
+	
+	
+	/**
+	 * Método contructor recebe um objeto DTO e 
+	 * instancia um objeto Remedio.
+	 * @param dados
+	 */
+	public Remedio(DadosCadastroRemedio dados) {
+		this.laboratorio = dados.laboratorio();
+		this.lote = dados.lote();
+		this.nome = dados.nome();
+		this.quantidade = dados.quantidade();
+		this.validade = dados.validade();
+		this.via = dados.via();
+	
+	}
 	
 	
 

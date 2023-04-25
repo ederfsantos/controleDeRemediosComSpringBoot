@@ -10,7 +10,9 @@ public enum Laboratorio {
 	MOMENTA,
 	EMS,
 	NEOQUIMICA,
-	SANOFI
+	SANOFI,
+	GERMED,
+	BELFAR
 	
 
 }

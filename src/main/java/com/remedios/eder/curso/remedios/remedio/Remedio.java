@@ -39,6 +39,8 @@ public class Remedio {
 	@Enumerated(EnumType.STRING)
 	private Laboratorio laboratorio;
 	
+	private boolean ativo;
+	
 	
 	/**
 	 * Método contructor recebe um objeto DTO e 
@@ -46,6 +48,7 @@ public class Remedio {
 	 * @param dados
 	 */
 	public Remedio(DadosCadastroRemedio dados) {
+		this.ativo=true;
 		this.laboratorio = dados.laboratorio();
 		this.lote = dados.lote();
 		this.nome = dados.nome();
@@ -55,7 +58,10 @@ public class Remedio {
 	
 	}
 
-
+/**
+ * Metodo utilizado para veirificar se tem dados nulos
+ * @param dados
+ */
 	public void atualizarInformacoes(@Valid DadosAtualizarRemedio dados) {
 		// TODO Auto-generated method stub
 		if(dados.nome()!=null) {
@@ -70,6 +76,18 @@ public class Remedio {
 		}
 		
 	}
+
+public void inativar() {
+	// TODO Auto-generated method stub
+	this.ativo = false;
+	
+}
+
+public void ativar() {
+	// TODO Auto-generated method stub
+	this.ativo = true;
+	
+}
 	
 	
 

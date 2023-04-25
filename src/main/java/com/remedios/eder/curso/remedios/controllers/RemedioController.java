@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,9 +15,11 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import com.remedios.eder.curso.remedios.remedio.DadosAtualizarRemedio;
 import com.remedios.eder.curso.remedios.remedio.DadosCadastroRemedio;
+import com.remedios.eder.curso.remedios.remedio.DadosDetalhamentoRemedio;
 import com.remedios.eder.curso.remedios.remedio.DadosListagemRemedio;
 
 import com.remedios.eder.curso.remedios.remedio.Remedio;
@@ -52,23 +55,28 @@ public class RemedioController {
 	 */
 	@PostMapping
 	@Transactional
-	public void cadastrar(@RequestBody @Valid DadosCadastroRemedio dados) {
+	public ResponseEntity<DadosDetalhamentoRemedio> cadastrar(@RequestBody @Valid DadosCadastroRemedio dados,UriComponentsBuilder uriBuilder) {
 		// System.out.println(dados);
-		repository.save(new Remedio(dados));
+		var remedio = new Remedio(dados);
+		repository.save(remedio);
+		var uri = uriBuilder.path("/remedios/{id}").buildAndExpand(remedio.getId()).toUri();
+		return ResponseEntity.created(uri).body(new DadosDetalhamentoRemedio(remedio));
 
 	}
 	
 	@GetMapping
-	public List<DadosListagemRemedio> listar(){
+	public ResponseEntity< List<DadosListagemRemedio>> listar(){
 		//return repository.findAll().stream().map(DadosListagemRemedio::new).toList();
-		return repository.findAllByAtivoTrue().stream().map(DadosListagemRemedio::new).toList();
+		var lista= repository.findAllByAtivoTrue().stream().map(DadosListagemRemedio::new).toList();
+		return ResponseEntity.ok(lista);
 	}
 	
 	@PutMapping
 	@Transactional
-	public void atualizar(@RequestBody @Valid DadosAtualizarRemedio dados) {
+	public ResponseEntity<DadosDetalhamentoRemedio> atualizar(@RequestBody @Valid DadosAtualizarRemedio dados) {
 		var remedio = repository.getReferenceById(dados.id());
 		remedio.atualizarInformacoes(dados);
+		return ResponseEntity.ok(new DadosDetalhamentoRemedio(remedio));
 	}
 	/**
 	 * Exclusao total
@@ -87,9 +95,11 @@ public class RemedioController {
 	 */
 	@DeleteMapping("/inativar/{id}")
 	@Transactional
-	public void inativarRemedio(@PathVariable Long id) {
+	public ResponseEntity<Void> inativarRemedio(@PathVariable Long id) {
 		var remedio = repository.getReferenceById(id);
 		remedio.inativar();
+		return ResponseEntity.noContent().build();
+				
 	}
 	
 /**
@@ -98,8 +108,9 @@ public class RemedioController {
  */
 	@PutMapping("/ativar/{id}")
 	@Transactional
-	public void ativarRemedio(@PathVariable Long id) {
+	public ResponseEntity<Void> ativarRemedio(@PathVariable Long id) {
 		var remedio = repository.getReferenceById(id);
 		remedio.ativar();
+		return ResponseEntity.noContent().build();
 	}
 }

@@ -39,7 +39,7 @@ public class Remedio {
 	@Enumerated(EnumType.STRING)
 	private Laboratorio laboratorio;
 	
-	private boolean ativo;
+	private Boolean ativo;
 	
 	
 	/**

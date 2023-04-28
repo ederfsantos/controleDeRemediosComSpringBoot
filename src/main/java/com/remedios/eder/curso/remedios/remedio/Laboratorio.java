@@ -12,7 +12,12 @@ public enum Laboratorio {
 	NEOQUIMICA,
 	SANOFI,
 	GERMED,
-	BELFAR
+	BELFAR,
+	PHIZER,
+	TAKEDA,
+	MANTERCORP,
+	CHIEZZI,
+	SANDOZ
 	
 
 }

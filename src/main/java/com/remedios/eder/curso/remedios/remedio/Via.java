@@ -2,9 +2,12 @@ package com.remedios.eder.curso.remedios.remedio;
 
 public enum Via {
 
-	ORAL,NASAL,
+	ORAL,
+	NASAL,
 	VENOSO,
 	RETAL,
-	INTRAMUSUCULAR,
-	OCULAR
+	INTRAMUSCULAR,
+	OCULAR,
+	INALATORIO
+	
 }

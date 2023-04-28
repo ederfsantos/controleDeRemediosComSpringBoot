@@ -55,11 +55,11 @@ public class Remedio {
 		this.quantidade = dados.quantidade();
 		this.validade = dados.validade();
 		this.via = dados.via();
-	
+		
 	}
 
 /**
- * Metodo utilizado para veirificar se tem dados nulos
+ * Metodo utilizado para verificar se tem dados nulos
  * @param dados
  */
 	public void atualizarInformacoes(@Valid DadosAtualizarRemedio dados) {

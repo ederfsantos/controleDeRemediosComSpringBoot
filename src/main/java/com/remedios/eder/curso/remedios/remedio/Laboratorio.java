@@ -17,7 +17,8 @@ public enum Laboratorio {
 	TAKEDA,
 	MANTERCORP,
 	CHIEZZI,
-	SANDOZ
+	SANDOZ,
+	NATULAB
 	
 
 }

@@ -16,7 +16,7 @@ import jakarta.validation.constraints.NotNull;
 public record DadosCadastroRemedio(
 		@NotBlank String nome,
 		@Enumerated Via via,
-		String lote,
+		@NotBlank String lote,
 		@NotNull
 		Integer quantidade,
 		@Future //nao permite data passada

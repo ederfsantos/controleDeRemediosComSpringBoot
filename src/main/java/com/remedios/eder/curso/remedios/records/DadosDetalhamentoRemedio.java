@@ -1,6 +1,10 @@
-package com.remedios.eder.curso.remedios.remedio;
+package com.remedios.eder.curso.remedios.records;
 
 import java.time.LocalDate;
+
+import com.remedios.eder.curso.remedios.entidades.Remedio;
+import com.remedios.eder.curso.remedios.enuns.Laboratorio;
+import com.remedios.eder.curso.remedios.enuns.Via;
 
 public record DadosDetalhamentoRemedio(Long id, String nome, Via via, String lote, Integer quantidade,
 		LocalDate validade, Laboratorio laboratorio, Boolean ativo) {

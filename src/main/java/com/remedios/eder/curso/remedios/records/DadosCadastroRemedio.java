@@ -1,6 +1,9 @@
-package com.remedios.eder.curso.remedios.remedio;
+package com.remedios.eder.curso.remedios.records;
 
 import java.time.LocalDate;
+
+import com.remedios.eder.curso.remedios.enuns.Laboratorio;
+import com.remedios.eder.curso.remedios.enuns.Via;
 
 import jakarta.persistence.Enumerated;
 import jakarta.validation.constraints.Future;
@@ -17,7 +20,7 @@ public record DadosCadastroRemedio(
 		@NotBlank String nome,
 		@Enumerated Via via,
 		@NotBlank String lote,
-		@NotNull
+		@NotNull//vcpode personalizar a mensagem de retorno colocando @NotNull(message:"sua mensagem")
 		Integer quantidade,
 		@Future //nao permite data passada
 		LocalDate validade,

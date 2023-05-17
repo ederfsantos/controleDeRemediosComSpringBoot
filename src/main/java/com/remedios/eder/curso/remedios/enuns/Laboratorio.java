@@ -1,4 +1,4 @@
-package com.remedios.eder.curso.remedios.remedio;
+package com.remedios.eder.curso.remedios.enuns;
 
 public enum Laboratorio {
 	

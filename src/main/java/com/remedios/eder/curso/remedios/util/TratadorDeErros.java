@@ -1,4 +1,4 @@
-package com.remedios.eder.curso.remedios.infra;
+package com.remedios.eder.curso.remedios.util;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;

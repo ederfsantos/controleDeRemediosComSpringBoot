@@ -17,13 +17,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.remedios.eder.curso.remedios.remedio.DadosAtualizarRemedio;
-import com.remedios.eder.curso.remedios.remedio.DadosCadastroRemedio;
-import com.remedios.eder.curso.remedios.remedio.DadosDetalhamentoRemedio;
-import com.remedios.eder.curso.remedios.remedio.DadosListagemRemedio;
-
-import com.remedios.eder.curso.remedios.remedio.Remedio;
-import com.remedios.eder.curso.remedios.remedio.RemedioRepository;
+import com.remedios.eder.curso.remedios.entidades.Remedio;
+import com.remedios.eder.curso.remedios.records.DadosAtualizarRemedio;
+import com.remedios.eder.curso.remedios.records.DadosCadastroRemedio;
+import com.remedios.eder.curso.remedios.records.DadosDetalhamentoRemedio;
+import com.remedios.eder.curso.remedios.records.DadosListagemRemedio;
+import com.remedios.eder.curso.remedios.repositorios.RemedioRepository;
 
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;

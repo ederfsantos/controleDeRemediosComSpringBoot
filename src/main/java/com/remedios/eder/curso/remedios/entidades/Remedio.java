@@ -1,6 +1,11 @@
-package com.remedios.eder.curso.remedios.remedio;
+package com.remedios.eder.curso.remedios.entidades;
 
 import java.time.LocalDate;
+
+import com.remedios.eder.curso.remedios.enuns.Laboratorio;
+import com.remedios.eder.curso.remedios.enuns.Via;
+import com.remedios.eder.curso.remedios.records.DadosAtualizarRemedio;
+import com.remedios.eder.curso.remedios.records.DadosCadastroRemedio;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;

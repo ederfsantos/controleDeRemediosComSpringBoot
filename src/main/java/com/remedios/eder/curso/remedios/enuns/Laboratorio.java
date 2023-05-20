@@ -18,7 +18,8 @@ public enum Laboratorio {
 	MANTERCORP,
 	CHIEZZI,
 	SANDOZ,
-	NATULAB
+	NATULAB,
+	BIOSSINTETICA
 	
 	
 

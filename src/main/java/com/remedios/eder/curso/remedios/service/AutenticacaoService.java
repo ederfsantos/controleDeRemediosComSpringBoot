@@ -1,4 +1,4 @@
-package com.remedios.eder.curso.remedios.usuarios;
+package com.remedios.eder.curso.remedios.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;

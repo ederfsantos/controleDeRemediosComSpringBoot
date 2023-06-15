@@ -19,7 +19,9 @@ public enum Laboratorio {
 	CHIEZZI,
 	SANDOZ,
 	NATULAB,
-	BIOSSINTETICA
+	BIOSSINTETICA,
+	GSK,
+	NOVARTIS
 	
 	
 

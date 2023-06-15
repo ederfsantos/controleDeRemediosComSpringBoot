@@ -10,8 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.remedios.eder.curso.remedios.records.DadosAutenticacao;
+import com.remedios.eder.curso.remedios.records.DadosTokenJWT;
+import com.remedios.eder.curso.remedios.service.TokenService;
 import com.remedios.eder.curso.remedios.usuarios.Usuario;
-import com.remedios.eder.curso.remedios.util.TokenService;
 
 import jakarta.validation.Valid;
 
@@ -29,8 +30,13 @@ public class AutenticacaoController {
 		var token = new UsernamePasswordAuthenticationToken(dados.login(), dados.senha());
 		var autenticacao = manager.authenticate(token);
 		//return ResponseEntity.ok().build();
-		return ResponseEntity.ok(tokenService.gerarToken((Usuario)autenticacao.getPrincipal()));
+		//return ResponseEntity.ok(tokenService.gerarToken((Usuario)autenticacao.getPrincipal()));
+		var tokenJWT = tokenService.gerarToken((Usuario)autenticacao.getPrincipal());
+		
+		return ResponseEntity.ok(new DadosTokenJWT(tokenJWT));
 		
 		
 	}
+
+	
 }

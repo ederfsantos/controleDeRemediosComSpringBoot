@@ -17,6 +17,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
 @Table(name = "usuario")
 @Getter
 @Setter
@@ -24,7 +25,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @EqualsAndHashCode(of = "id")
 @Entity
-public class Usuario implements UserDetails{
+public class Usuario implements UserDetails {
 	/**
 	 * 
 	 */
@@ -34,42 +35,48 @@ public class Usuario implements UserDetails{
 	private Long id;
 	private String login;
 	private String senha;
+
+	
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		// IMPLEMENTA  CONTROLE DE ACESSO, SERA VISTO DEPOIS
+		// IMPLEMENTA CONTROLE DE ACESSO, SERA VISTO DEPOIS
 		return List.of(new SimpleGrantedAuthority("ROLE_USER"));
 	}
+
 	@Override
 	public String getPassword() {
 		// TODO Auto-generated method stub
 		return senha;
 	}
+
 	@Override
 	public String getUsername() {
 		// TODO Auto-generated method stub
 		return login;
 	}
+
 	@Override
 	public boolean isAccountNonExpired() {
 		// TODO Auto-generated method stub
 		return true;
 	}
+
 	@Override
 	public boolean isAccountNonLocked() {
 		// TODO Auto-generated method stub
 		return true;
 	}
+
 	@Override
 	public boolean isCredentialsNonExpired() {
 		// TODO Auto-generated method stub
 		return true;
 	}
+
 	@Override
 	public boolean isEnabled() {
 		// TODO Auto-generated method stub
 		return true;
 	}
-	
-	
 
 }
